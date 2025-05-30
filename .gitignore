@@ -1,0 +1,33 @@
+# === Rust build artifacts ===
+/target/
+**/target/
+
+# === Rust lock files (ignore if library crates) ===
+Cargo.lock
+**/Cargo.lock
+
+# === Executables and shared libs ===
+**/*.exe
+**/*.dll
+**/*.so
+**/*.dylib
+
+# === Logs and temp files ===
+*.log
+*.tmp
+*.swp
+*.swo
+
+# === Editor/IDE ===
+/.idea/
+/.vscode/
+/*.code-workspace
+
+# === macOS ===
+.DS_Store
+
+# === Debug files ===
+.bbg
+
+# === Node.js (optional for frontend) ===
+node_modules/
