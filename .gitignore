@@ -22,7 +22,7 @@ Cargo.lock
 /.idea/
 /.vscode/
 /*.code-workspace
-
+test.env
 # === macOS ===
 .DS_Store
 

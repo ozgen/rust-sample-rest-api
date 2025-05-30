@@ -2,11 +2,11 @@ version: '3.1'
 
 services:
   postgres:
-    image: postgres:14
+    image: postgres:16.4-alpine
     platform:  linux/amd64
     container_name: postgres_db
     ports:
-      - "5432:5432"
+      - "54322:5432"
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
