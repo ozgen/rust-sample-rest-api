@@ -2,6 +2,7 @@ mod config;
 mod handlers;
 mod routes;
 
+use std::path::Path;
 use crate::config::Config;
 use crate::routes::router;
 
@@ -10,6 +11,7 @@ use sqlx::PgPool;
 use hyper::server::conn::http1;
 use hyper::service::service_fn;
 use hyper_util::rt::TokioIo;
+use sqlx::migrate::Migrator;
 use tokio::net::TcpListener;
 
 #[tokio::main]
@@ -18,6 +20,13 @@ async fn main() -> anyhow::Result<()> {
 
     let config = Config::from_env()?;
     let db_pool = PgPool::connect(&config.database_url).await?;
+
+    println!("Running database migrations...");
+    Migrator::new(Path::new("./migrations"))
+        .await?
+        .run(&db_pool)
+        .await?;
+    println!("Migrations applied successfully.");
 
     let listener = TcpListener::bind("127.0.0.1:8080").await?;
     println!("Listening on http://127.0.0.1:8080");

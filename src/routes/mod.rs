@@ -1,8 +1,8 @@
 use hyper::{Request, Response, Method, StatusCode};
-use hyper::body::Incoming; // <- this replaces `Body` from v0.14
+use hyper::body::Incoming;
 use sqlx::PgPool;
 use bytes::Bytes;
-use http_body_util::{Full, BodyExt}; // Full response body and `.boxed()`
+use http_body_util::{Full, BodyExt};
 
 use crate::handlers::hello_handler;
 
