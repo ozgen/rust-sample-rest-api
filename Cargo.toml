@@ -8,7 +8,7 @@ hyper = { version = "1", features = ["http1", "server"] }
 hyper-util = { version = "0", features = ["tokio"] }
 tokio = { version = "1", features = ["full"] }
 dotenvy = "0.15"
-sqlx = { version = "0.7", features = ["postgres", "runtime-tokio-rustls", "macros"] }
+sqlx = { version = "0.7", features = ["postgres", "runtime-tokio-rustls", "macros", "migrate"] }
 bytes = "1"
 http-body-util = "0.1"
 anyhow = "1"
